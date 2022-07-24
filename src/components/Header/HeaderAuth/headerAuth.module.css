@@ -1,0 +1,12 @@
+.link {
+  font-size: 18px;
+  text-decoration: none;
+}
+.link:not(:last-child) {
+  margin-right: 15px;
+}
+
+.linkActive {
+  composes: link;
+  color: tomato;
+}

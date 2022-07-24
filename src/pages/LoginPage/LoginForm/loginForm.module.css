@@ -1,0 +1,28 @@
+.form {
+  width: 30%;
+  margin: 0 auto;
+}
+
+.form,
+.label {
+  display: flex;
+  flex-direction: column;
+}
+
+.label {
+  margin-bottom: 15px;
+}
+
+.input {
+  padding: 7px;
+  border: 2px solid #ccc;
+  border-radius: 4px;
+  margin-top: 10px;
+  outline: none;
+  resize: none;
+}
+
+.formBtn {
+  display: block;
+  margin: 0 auto;
+}
