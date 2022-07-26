@@ -1,14 +1,4 @@
-// import axios from 'axios';
 import instance from './auth-api';
-
-// const instance = axios.create({
-//   baseURL: 'https://62d032381cc14f8c088661c2.mockapi.io',
-//   params: {
-//     l: 10,
-//     sortBy: 'createdAt',
-//     order: 'desc',
-//   },
-// });
 
 const fetchAllContacts = async () => {
   const { data } = await instance('/contacts');

@@ -22,7 +22,8 @@ export const register = createAsyncThunk(
       );
       return registeredUser;
     } catch (error) {
-      return rejectWithValue(toast.error('Server error', toastSetup));
+      toast.error('Server error', toastSetup);
+      return rejectWithValue(error);
     }
   }
 );
@@ -41,9 +42,8 @@ export const login = createAsyncThunk(
       );
       return loggedUser;
     } catch (error) {
-      return rejectWithValue(
-        toast.warn('This user is not in DB yet. Register first', toastSetup)
-      );
+      toast.warn('This user is not in DB yet. Register first', toastSetup);
+      return rejectWithValue(error);
     }
   }
 );
@@ -56,7 +56,8 @@ export const logout = createAsyncThunk(
       toast.success('See you later!', toastSetup);
       return result;
     } catch (error) {
-      return rejectWithValue(toast.error('Server error', toastSetup));
+      toast.error('Server error', toastSetup);
+      return rejectWithValue(error);
     }
   }
 );
@@ -75,7 +76,8 @@ export const getCurrent = createAsyncThunk(
       );
       return currentUser;
     } catch (error) {
-      return rejectWithValue(toast.error('Server error', toastSetup));
+      toast.error('Server error', toastSetup);
+      return rejectWithValue(error);
     }
   },
   {

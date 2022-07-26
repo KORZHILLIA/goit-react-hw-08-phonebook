@@ -15,12 +15,11 @@ export const getAllContacts = createAsyncThunk(
       const allContacts = await fetchAllContacts();
       return allContacts;
     } catch (error) {
-      return rejectWithValue(
-        toast.error('Server error, try again', {
-          ...toastSetup,
-          autoClose: false,
-        })
-      );
+      toast.error('Server error, try again', {
+        ...toastSetup,
+        autoClose: false,
+      });
+      return rejectWithValue(error);
     }
   }
 );
@@ -32,9 +31,8 @@ export const addContact = createAsyncThunk(
       const addedContact = await addContactToApi(contact);
       return addedContact;
     } catch (error) {
-      return rejectWithValue(
-        toast.error('Something wrong with contact adding', toastSetup)
-      );
+      toast.error('Something wrong with contact adding', toastSetup);
+      return rejectWithValue(error);
     }
   },
   {
@@ -71,12 +69,11 @@ export const deleteContact = createAsyncThunk(
       );
       return contactsWithoutDeletedContact;
     } catch (error) {
-      return rejectWithValue(
-        toast.error(
-          'Server is unable to delete this contact, try again later',
-          toastSetup
-        )
+      toast.error(
+        'Server is unable to delete this contact, try again later',
+        toastSetup
       );
+      return rejectWithValue(error);
     }
   }
 );
@@ -88,12 +85,11 @@ export const editContact = createAsyncThunk(
       const updatedContact = await editContactInApi(contact);
       return updatedContact;
     } catch (error) {
-      rejectWithValue(
-        toast.error(
-          "It's impossible to update this contact at a time, try once again",
-          toastSetup
-        )
+      toast.error(
+        "It's impossible to update this contact at a time, try once again",
+        toastSetup
       );
+      rejectWithValue(error);
     }
   }
 );
